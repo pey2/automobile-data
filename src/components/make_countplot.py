@@ -14,7 +14,7 @@ def create_symboling_categoricals_count(auto_df):
     categoricals_count = auto_df.select_dtypes(include=["object"]).columns
     selected_category_count = st.selectbox("Categories: ", categoricals_count, key="cat_2")
 
-    st.write(f"### Distribution of {selected_category_count} based on symboling")
+    st.write(f"### Distribution of symboling based on {selected_category_count}")
     fig, ax = plt.subplots(figsize=(30,10))
     sns.countplot(data=auto_df, x=auto_df[selected_category_count], hue="symboling", palette="viridis")
     ax.set_title(f"Distribution of {selected_category_count} based on symboling")

@@ -19,7 +19,7 @@ auto_df = auto_df.drop("Unnamed: 0", axis=1)
 st.header("Automobile Dataset")
 st.dataframe(auto_df)
 
-# histplot for make
+# countplot for make based on different categoricals
 make_countplot.create_make_categoricals_count(auto_df)
 
 # countplot for symboling based on categoricals
