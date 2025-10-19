@@ -25,14 +25,20 @@ inputs = {}
 
 with col1:
     for col in numerical_feat1:
-        inputs[col] = st.number_input(col.replace("-", " ").title(), value=0.00, format="%g")
+        inputs[col] = st.number_input(col.replace("-", " ").title(), 
+                                      min_value=1,  
+                                      format="%g",
+                                      help="Enter a value greater than 1")
 
 with col2:
     for col in numerical_feat2:
         if (col == "num-of-cylinders") | (col == "num-of-doors"):
             inputs[col] = st.selectbox(col.replace("-", " ").title(), sorted(auto_df[col].unique()))
         else:
-            inputs[col] = st.number_input(col.replace("-", " ").title(), value=0.00, format="%g")    
+            inputs[col] = st.number_input(col.replace("-", " ").title(), 
+                                        min_value=1,  
+                                        format="%g",
+                                        help="Enter a value greater than 1")    
 with col3:
     for col in categorical_feat:
         inputs[col] = st.selectbox(col.replace("-", " ").title(), auto_df[col].unique())

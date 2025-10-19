@@ -10,7 +10,6 @@ from sklearn.metrics import classification_report
 # Data loading
 def load_and_clean_data(path: str):
     df = pd.read_csv(path).drop("Unnamed: 0", axis=1)
-    df["symboling"] = df["symboling"].replace(-2, -1)
     return df
 
 
